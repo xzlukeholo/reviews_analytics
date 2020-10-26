@@ -15,3 +15,16 @@ for message in data:
 average_length = sum_length / len(data)
 print('總字數:', sum_length, '字')
 print('每筆留言平均字數:', average_length, '字')
+
+new = []
+for d in data:
+	if len(d) < 100:
+		new.append(d)
+print('一共有', len(new), '筆留言,長度小於100')
+
+
+good= []
+for d in data:
+	if 'good' in d:
+		good.append(d)
+print('一共有', len(good), '筆留言提到good')
