@@ -28,3 +28,34 @@ for d in data:
 	if 'good' in d:
 		good.append(d)
 print('一共有', len(good), '筆留言提到good')
+
+new1 = [1 for d in data if 'good' in d]
+print(len(new1))
+
+keyword_number = input('想查詢出現幾次以上的關鍵字呢? :')
+
+wc = {} #word_count
+for d in data:
+	words = d.split()
+	for word in words:
+		if word in wc:
+			wc[word] = wc[word] + 1
+		else:
+			wc[word] = 1
+
+for word in wc:
+	if wc[word] > int(keyword_number):
+		print(word, wc[word])
+
+print('總共有:', len(wc), '個不同的字')
+
+while  True:
+	keyword = input('請輸入想查詢的關鍵字:')
+	if keyword == 'q':
+		break
+	if keyword in wc:
+		print(keyword, '出現的次數為:', wc[keyword])
+	else:
+		print(keyword + '沒有出現過喔!')
+
+print('感謝您使用本查詢功能')
